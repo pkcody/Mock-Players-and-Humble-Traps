@@ -16,14 +16,14 @@ public class TrapBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var characterMover = other.GetComponent<ICharacterMover>();
-        trap.HandleCharacterEntered(characterMover, trapType);
+        var character = other.GetComponent<ICharacterEffects>();
+        trap.HandleCharacterEntered(character, trapType);
     }
 }
 
 public class Trap
 {
-    public void HandleCharacterEntered(ICharacterMover characterMover, TrapTargetType trapTargetType)
+    public void HandleCharacterEntered(ICharacterEffects characterMover, TrapTargetType trapTargetType)
     {
         if (characterMover.IsPlayer)
         {
